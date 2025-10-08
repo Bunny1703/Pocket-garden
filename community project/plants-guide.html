@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailed Plants Guide - Pocket Garden Project</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Additional styles for plants guide page */
+        .plant-category {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+        
+        .plant-category:nth-child(even) {
+            background-color: var(--light-green);
+        }
+        
+        .plant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .plant-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .plant-category:nth-child(even) .plant-card {
+            background-color: var(--white);
+        }
+        
+        .plant-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .plant-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .plant-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .plant-card:hover .plant-image img {
+            transform: scale(1.05);
+        }
+        
+        .plant-content {
+            padding: 20px;
+        }
+        
+        .plant-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--black);
+        }
+        
+        .plant-content p {
+            color: var(--dark-gray);
+            margin-bottom: 15px;
+        }
+        
+        .plant-details {
+            margin-top: 20px;
+        }
+        
+        .plant-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .plant-detail i {
+            color: var(--primary-color);
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-point {
+            position: relative;
+            text-align: center;
+            width: 60px;
+        }
+        
+        .timeline-point::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 12px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+        }
+        
+        .timeline-label {
+            margin-top: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .care-tips {
+            margin-top: 20px;
+            background-color: rgba(139, 195, 74, 0.1);
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .care-tips h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .care-tips ul {
+            padding-left: 20px;
+        }
+        
+        .care-tips li {
+            margin-bottom: 5px;
+        }
+        
+        .plant-tabs {
+            display: flex;
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 20px;
+        }
+        
+        .plant-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .plant-tab.active {
+            border-bottom: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-seedling"></i>
+                <h1>Pocket Garden</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="plants-guide.html" class="active">Plants Guide</a></li>
+                <li><a href="home.html#kits">Starter Kits</a></li>
+                <li><a href="home.html#gallery">Gallery</a></li>
+                <li><a href="home.html#contact">Contact</a></li>
+            </ul>
+            <a href="index.html" class="btn btn-outline">Sign Out</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Complete Plants Guide</h1>
+            <p>Detailed information about plants and fruits that thrive in small spaces, with growing timelines and care instructions</p>
+        </div>
+    </section>
+
+    <!-- Vegetables Section -->
+    <section class="plant-category" id="vegetables">
+        <div class="section-title">
+            <h2>Vegetables for Pocket Gardens</h2>
+            <p>Perfect vegetables to grow in containers and small spaces</p>
+        </div>
+        <div class="plant-grid">
+            <!-- Tomato -->
+            <div class="plant-card">
+                <div class="plant-image">
+                    <img src="https://images.unsplash.com/photo-1592841200221-a6898f307baa?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Tomato Plant">
+                </div>
+                <div class="plant-content">
+                    <h3>Tomatoes</h3>
+                    <p>Tomatoes are one of the most rewarding vegetables to grow in containers. They produce abundant fruit in a small space.</p>
+                    
+                    <div class="plant-tabs">
+                        <div class="plant-tab active" data-tab="tomato-growing">Growing Guide</div>
+                        <div class="plant-tab" data-tab="tomato-timeline">Timeline</div>
+                        <div class="plant-tab" data-tab="tomato-care">Care Tips</div>
+                    </div>
+                    
+                    <div class="tab-content active" id="tomato-growing">
+                        <div class="plant-details">
+                            <div class="plant-detail">
+                                <i class="fas fa-sun"></i>
+                                <span>Sunlight: 6-8 hours of direct sunlight daily</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-tint"></i>
+                                <span>Water: Keep soil consistently moist but not soggy</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>Temperature: 18-29°C (65-85°F)</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-box"></i>
+                                <span>Container: 5-gallon pot (minimum) with drainage holes</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-seedling"></i>
+                                <span>Varieties: Cherry, Roma, Beefsteak (determinate varieties best for containers)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="tomato-timeline">
+                        <h4>Growing Timeline (90-120 days total)</h4>
+                        <div class="timeline">
+                            <div class="timeline-point">
+                                <div class="timeline-label">Day 1-7</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Day 21-28</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Day 40-50</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Day 60-80</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Day 90-120</div>
+                            </div>
+                        </div>
+                        <p style="margin-top: 15px; font-size: 14px;">
+                            <strong>Day 1-7:</strong> Seed germination<br>
+                            <strong>Day 21-28:</strong> Seedling with true leaves<br>
+                            <strong>Day 40-50:</strong> Flowering begins<br>
+                            <strong>Day 60-80:</strong> First fruits appear<br>
+                            <strong>Day 90-120:</strong> Harvest time
+                        </p>
+                    </div>
+                    
+                    <div class="tab-content" id="tomato-care">
+                        <div class="care-tips">
+                            <h4>Care Instructions</h4>
+                            <ul>
+                                <li>Stake or cage plants for support as they grow</li>
+                                <li>Prune suckers (side shoots) for better air circulation</li>
+                                <li>Feed with balanced fertilizer every 2 weeks</li>
+                                <li>Water at the base to avoid leaf diseases</li>
+                                <li>Harvest when fruits are firm and fully colored</li>
+                            </ul>
+                        </div>
+                        <div class="care-tips">
+                            <h4>Troubleshooting</h4>
+                            <ul>
+                                <li><strong>Yellow leaves:</strong> Possible overwatering or nutrient deficiency</li>
+                                <li><strong>Blossom end rot:</strong> Calcium deficiency, maintain consistent watering</li>
+                                <li><strong>Cracked fruits:</strong> Inconsistent watering, maintain even moisture</li>
+                                <li><strong>Curling leaves:</strong> Heat stress or pest infestation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chili Peppers -->
+            <div class="plant-card">
+                <div class="plant-image">
+                    <img src="https://images.unsplash.com/photo-1588252303782-cb80119abd6d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Chili Peppers">
+                </div>
+                <div class="plant-content">
+                    <h3>Chili Peppers</h3>
+                    <p>Chili peppers are compact plants that produce abundantly in containers and add spice to your cooking.</p>
+                    
+                    <div class="plant-tabs">
+                        <div class="plant-tab active" data-tab="chili-growing">Growing Guide</div>
+                        <div class="plant-tab" data-tab="chili-timeline">Timeline</div>
+                        <div class="plant-tab" data-tab="chili-care">Care Tips</div>
+                    </div>
+                    
+                    <div class="tab-content active" id="chili-growing">
+                        <div class="plant-details">
+                            <div class="plant-detail">
+                                <i class="fas fa-sun"></i>
+                                <span>Sunlight: 6-8 hours of direct sunlight daily</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-tint"></i>
+                                <span>Water: Allow soil to dry slightly between watering</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>Temperature: 21-32°C (70-90°F)</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-box"></i>
+                                <span>Container: 3-gallon pot with drainage holes</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-seedling"></i>
+                                <span>Varieties: Thai, Cayenne, Jalapeño, Bird's Eye</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="chili-timeline">
+                        <h4>Growing Timeline (80-120 days total)</h4>
+                        <div class="timeline">
+                            <div class="timeline-point">
+                                <div class="timeline-label">Day 1-10</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Day 20-30</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Day 35-50</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Day 60-80</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Day 80-120</div>
+                            </div>
+                        </div>
+                        <p style="margin-top: 15px; font-size: 14px;">
+                            <strong>Day 1-10:</strong> Seed germination<br>
+                            <strong>Day 20-30:</strong> Seedling with true leaves<br>
+                            <strong>Day 35-50:</strong> Flowering begins<br>
+                            <strong>Day 60-80:</strong> Green peppers form<br>
+                            <strong>Day 80-120:</strong> Peppers ripen to final color
+                        </p>
+                    </div>
+                    
+                    <div class="tab-content" id="chili-care">
+                        <div class="care-tips">
+                            <h4>Care Instructions</h4>
+                            <ul>
+                                <li>Provide support for taller varieties</li>
+                                <li>Reduce watering once fruits begin to form</li>
+                                <li>Feed with low-nitrogen, high-phosphorus fertilizer</li>
+                                <li>Harvest regularly to encourage more production</li>
+                                <li>Pinch off early flowers to establish stronger plants</li>
+                            </ul>
+                        </div>
+                        <div class="care-tips">
+                            <h4>Troubleshooting</h4>
+                            <ul>
+                                <li><strong>Dropping flowers:</strong> Temperature stress or inconsistent watering</li>
+                                <li><strong>Stunted growth:</strong> Nutrient deficiency or root binding</li>
+                                <li><strong>Curling leaves:</strong> Aphid infestation or heat stress</li>
+                                <li><strong>Small fruits:</strong> Insufficient pollination, gently shake plants</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Spinach -->
+            <div class="plant-card">
+                <div class="plant-image">
+                    <img src="https://images.unsplash.com/photo-1576045057995-568f588f82fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Spinach">
+                </div>
+                <div class="plant-content">
+                    <h3>Spinach</h3>
+                    <p>Spinach is a fast-growing leafy green that's perfect for small spaces and provides nutritious harvests.</p>
+                    
+                    <div class="plant-tabs">
+                        <div class="plant-tab active" data-tab="spinach-growing">Growing Guide</div>
+                        <div class="plant-tab" data-tab="spinach-timeline">Timeline</div>
+                        <div class="plant-tab" data-tab="spinach-care">Care Tips</div>
+                    </div>
+                    
+                    <div class="tab-content active" id="spinach-growing">
+                        <div class="plant-details">
+                            <div class="plant-detail">
+                                <i class="fas fa-sun"></i>
+                                <span>Sunlight: 3-4 hours of direct sunlight or partial shade</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-tint"></i>
+                                <span>Water: Keep soil consistently moist</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>Temperature: 10-24°C (50-75°F)</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-box"></i>
+                                <span>Container: Wide, shallow container (6" deep)</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-seedling"></i>
+                                <span>Varieties: Bloomsdale, New Zealand, Malabar (heat-tolerant)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="spinach-timeline">
+                        <h4>Growing Timeline (40-50 days total)</h4>
+                        <div class="timeline">
+                            <div class="timeline-point">
+                                <div class="timeline-label">Day 1-5</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Day 10-15</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Day 20-30</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Day 30-40</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Day 40-50</div>
+                            </div>
+                        </div>
+                        <p style="margin-top: 15px; font-size: 14px;">
+                            <strong>Day 1-5:</strong> Seed germination<br>
+                            <strong>Day 10-15:</strong> First true leaves appear<br>
+                            <strong>Day 20-30:</strong> Young leaves ready for baby spinach harvest<br>
+                            <strong>Day 30-40:</strong> Full-sized leaves developing<br>
+                            <strong>Day 40-50:</strong> Full harvest (before bolting in warm weather)
+                        </p>
+                    </div>
+                    
+                    <div class="tab-content" id="spinach-care">
+                        <div class="care-tips">
+                            <h4>Care Instructions</h4>
+                            <ul>
+                                <li>Sow seeds successively every 2-3 weeks for continuous harvest</li>
+                                <li>Harvest outer leaves first to extend production</li>
+                                <li>Provide afternoon shade in hot weather</li>
+                                <li>Apply balanced liquid fertilizer every 2-3 weeks</li>
+                                <li>Grow during cooler months to prevent bolting</li>
+                            </ul>
+                        </div>
+                        <div class="care-tips">
+                            <h4>Troubleshooting</h4>
+                            <ul>
+                                <li><strong>Bolting:</strong> Heat stress, plant in cooler seasons or use heat-tolerant varieties</li>
+                                <li><strong>Yellow leaves:</strong> Overwatering or nitrogen deficiency</li>
+                                <li><strong>Holes in leaves:</strong> Leaf miners or slugs, remove affected leaves</li>
+                                <li><strong>Slow growth:</strong> Insufficient nutrients, apply balanced fertilizer</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Herbs Section -->
+    <section class="plant-category" id="herbs">
+        <div class="section-title">
+            <h2>Herbs for Pocket Gardens</h2>
+            <p>Aromatic herbs that thrive in small containers and add flavor to your cooking</p>
+        </div>
+        <div class="plant-grid">
+            <!-- Mint -->
+            <div class="plant-card">
+                <div class="plant-image">
+                    <img src="https://images.unsplash.com/photo-1628557044797-f21a177c37ec?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Mint">
+                </div>
+                <div class="plant-content">
+                    <h3>Mint</h3>
+                    <p>Mint is a vigorous herb that's perfect for containers and adds refreshing flavor to drinks and dishes.</p>
+                    
+                    <div class="plant-tabs">
+                        <div class="plant-tab active" data-tab="mint-growing">Growing Guide</div>
+                        <div class="plant-tab" data-tab="mint-timeline">Timeline</div>
+                        <div class="plant-tab" data-tab="mint-care">Care Tips</div>
+                    </div>
+                    
+                    <div class="tab-content active" id="mint-growing">
+                        <div class="plant-details">
+                            <div class="plant-detail">
+                                <i class="fas fa-sun"></i>
+                                <span>Sunlight: Partial shade to full sun (4-6 hours)</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-tint"></i>
+                                <span>Water: Keep soil consistently moist</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>Temperature: 18-26°C (65-80°F)</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-box"></i>
+                                <span>Container: 8-10" pot with drainage (contained to prevent spreading)</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-seedling"></i>
+                                <span>Varieties: Spearmint, Peppermint, Chocolate Mint, Apple Mint</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="mint-timeline">
+                        <h4>Growing Timeline (60-90 days from cutting)</h4>
+                        <div class="timeline">
+                            <div class="timeline-point">
+                                <div class="timeline-label">Day 1-7</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Day 14-21</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Day 30-45</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Day 45-60</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Day 60-90</div>
+                            </div>
+                        </div>
+                        <p style="margin-top: 15px; font-size: 14px;">
+                            <strong>Day 1-7:</strong> Cutting develops roots<br>
+                            <strong>Day 14-21:</strong> New growth appears<br>
+                            <strong>Day 30-45:</strong> Plant becomes established<br>
+                            <strong>Day 45-60:</strong> First light harvest possible<br>
+                            <strong>Day 60-90:</strong> Full, regular harvesting
+                        </p>
+                    </div>
+                    
+                    <div class="tab-content" id="mint-care">
+                        <div class="care-tips">
+                            <h4>Care Instructions</h4>
+                            <ul>
+                                <li>Grow in a dedicated container as mint spreads aggressively</li>
+                                <li>Harvest regularly to encourage bushy growth</li>
+                                <li>Pinch flower buds to maintain flavor</li>
+                                <li>Divide plants every 1-2 years to rejuvenate</li>
+                                <li>Fertilize lightly; mint prefers moderate nutrients</li>
+                            </ul>
+                        </div>
+                        <div class="care-tips">
+                            <h4>Troubleshooting</h4>
+                            <ul>
+                                <li><strong>Leggy growth:</strong> Insufficient light, move to brighter location</li>
+                                <li><strong>Rust spots:</strong> Fungal disease, improve air circulation</li>
+                                <li><strong>Wilting:</strong> Underwatering or root rot from overwatering</li>
+                                <li><strong>Pale leaves:</strong> Nutrient deficiency, apply balanced fertilizer</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Curry Leaves -->
+            <div class="plant-card">
+                <div class="plant-image">
+                    <img src="images/curry-leaves-plant.svg" alt="Curry Leaves">
+                </div>
+                <div class="plant-content">
+                    <h3>Curry Leaves</h3>
+                    <p>Curry leaf plants add authentic flavor to Indian dishes and can thrive as a potted plant in warm conditions.</p>
+                    
+                    <div class="plant-tabs">
+                        <div class="plant-tab active" data-tab="curry-growing">Growing Guide</div>
+                        <div class="plant-tab" data-tab="curry-timeline">Timeline</div>
+                        <div class="plant-tab" data-tab="curry-care">Care Tips</div>
+                    </div>
+                    
+                    <div class="tab-content active" id="curry-growing">
+                        <div class="plant-details">
+                            <div class="plant-detail">
+                                <i class="fas fa-sun"></i>
+                                <span>Sunlight: 4-6 hours of bright, indirect light</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-tint"></i>
+                                <span>Water: Allow top inch of soil to dry between watering</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>Temperature: 20-35°C (68-95°F)</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-box"></i>
+                                <span>Container: 12" deep pot with good drainage</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-seedling"></i>
+                                <span>Varieties: Murraya koenigii (standard curry leaf)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="curry-timeline">
+                        <h4>Growing Timeline (1-2 years for established plant)</h4>
+                        <div class="timeline">
+                            <div class="timeline-point">
+                                <div class="timeline-label">Month 1</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Month 3</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Month 6</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Month 9</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Year 1-2</div>
+                            </div>
+                        </div>
+                        <p style="margin-top: 15px; font-size: 14px;">
+                            <strong>Month 1:</strong> Seedling establishment<br>
+                            <strong>Month 3:</strong> Young plant with multiple leaves<br>
+                            <strong>Month 6:</strong> Growing plant with branching<br>
+                            <strong>Month 9:</strong> Limited harvesting possible<br>
+                            <strong>Year 1-2:</strong> Mature plant with regular harvests
+                        </p>
+                    </div>
+                    
+                    <div class="tab-content" id="curry-care">
+                        <div class="care-tips">
+                            <h4>Care Instructions</h4>
+                            <ul>
+                                <li>Use well-draining soil with added sand or perlite</li>
+                                <li>Protect from cold drafts and temperatures below 15°C (59°F)</li>
+                                <li>Fertilize monthly with balanced organic fertilizer</li>
+                                <li>Prune to maintain bushy growth and height</li>
+                                <li>Bring indoors during winter in colder climates</li>
+                            </ul>
+                        </div>
+                        <div class="care-tips">
+                            <h4>Troubleshooting</h4>
+                            <ul>
+                                <li><strong>Leaf drop:</strong> Temperature stress or overwatering</li>
+                                <li><strong>Yellow leaves:</strong> Nutrient deficiency or overwatering</li>
+                                <li><strong>Leggy growth:</strong> Insufficient light</li>
+                                <li><strong>Pests:</strong> Spider mites or scale insects, treat with neem oil</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Basil -->
+            <div class="plant-card">
+                <div class="plant-image">
+                    <img src="images/basil-plant.svg" alt="Basil" style="width: 100%; height: auto;">
+                </div>
+                <div class="plant-content">
+                    <h3>Basil</h3>
+                    <p>Basil is a fragrant herb that grows quickly in containers and is essential for Italian and Thai cooking.</p>
+                    
+                    <div class="plant-tabs">
+                        <div class="plant-tab active" data-tab="basil-growing">Growing Guide</div>
+                        <div class="plant-tab" data-tab="basil-timeline">Timeline</div>
+                        <div class="plant-tab" data-tab="basil-care">Care Tips</div>
+                    </div>
+                    
+                    <div class="tab-content active" id="basil-growing">
+                        <div class="plant-details">
+                            <div class="plant-detail">
+                                <i class="fas fa-sun"></i>
+                                <span>Sunlight: 6-8 hours of direct sunlight</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-tint"></i>
+                                <span>Water: Keep soil consistently moist but not soggy</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>Temperature: 18-30°C (65-86°F)</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-box"></i>
+                                <span>Container: 6-8" pot with drainage holes</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-seedling"></i>
+                                <span>Varieties: Genovese, Thai, Holy Basil, Lemon Basil</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="basil-timeline">
+                        <h4>Growing Timeline (60-80 days total)</h4>
+                        <div class="timeline">
+                            <div class="timeline-point">
+                                <div class="timeline-label">Day 1-5</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Day 10-15</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Day 20-30</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Day 40-60</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Day 60-80</div>
+                            </div>
+                        </div>
+                        <p style="margin-top: 15px; font-size: 14px;">
+                            <strong>Day 1-5:</strong> Seed germination<br>
+                            <strong>Day 10-15:</strong> First true leaves appear<br>
+                            <strong>Day 20-30:</strong> Young plant with multiple leaf pairs<br>
+                            <strong>Day 40-60:</strong> Begin harvesting outer leaves<br>
+                            <strong>Day 60-80:</strong> Full-sized plant with regular harvests
+                        </p>
+                    </div>
+                    
+                    <div class="tab-content" id="basil-care">
+                        <div class="care-tips">
+                            <h4>Care Instructions</h4>
+                            <ul>
+                                <li>Pinch off flower buds to extend leaf production</li>
+                                <li>Harvest from the top to encourage bushy growth</li>
+                                <li>Fertilize lightly every 4-6 weeks</li>
+                                <li>Provide good air circulation to prevent disease</li>
+                                <li>Harvest in the morning for best flavor</li>
+                            </ul>
+                        </div>
+                        <div class="care-tips">
+                            <h4>Troubleshooting</h4>
+                            <ul>
+                                <li><strong>Black spots:</strong> Fungal disease, improve air circulation</li>
+                                <li><strong>Yellowing leaves:</strong> Overwatering or nutrient deficiency</li>
+                                <li><strong>Leggy growth:</strong> Insufficient light</li>
+                                <li><strong>Wilting:</strong> Underwatering or heat stress</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fruits Section -->
+    <section class="plant-category" id="fruits">
+        <div class="section-title">
+            <h2>Fruits for Pocket Gardens</h2>
+            <p>Compact fruit varieties that can thrive in containers</p>
+        </div>
+        <div class="plant-grid">
+            <!-- Strawberries -->
+            <div class="plant-card">
+                <div class="plant-image">
+                    <img src="https://images.unsplash.com/photo-1587393855524-087f83d95bc9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Strawberries">
+                </div>
+                <div class="plant-content">
+                    <h3>Strawberries</h3>
+                    <p>Strawberries are perfect for hanging baskets or window boxes and produce sweet fruits in small spaces.</p>
+                    
+                    <div class="plant-tabs">
+                        <div class="plant-tab active" data-tab="strawberry-growing">Growing Guide</div>
+                        <div class="plant-tab" data-tab="strawberry-timeline">Timeline</div>
+                        <div class="plant-tab" data-tab="strawberry-care">Care Tips</div>
+                    </div>
+                    
+                    <div class="tab-content active" id="strawberry-growing">
+                        <div class="plant-details">
+                            <div class="plant-detail">
+                                <i class="fas fa-sun"></i>
+                                <span>Sunlight: 6-8 hours of direct sunlight</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-tint"></i>
+                                <span>Water: Keep soil consistently moist</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>Temperature: 15-26°C (60-80°F)</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-box"></i>
+                                <span>Container: Hanging basket, strawberry pot, or 8" deep container</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-seedling"></i>
+                                <span>Varieties: Alpine, Day-neutral, Everbearing varieties</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="strawberry-timeline">
+                        <h4>Growing Timeline (1 year for full production)</h4>
+                        <div class="timeline">
+                            <div class="timeline-point">
+                                <div class="timeline-label">Month 1</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Month 2-3</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Month 4-5</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Month 6-8</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Year 1</div>
+                            </div>
+                        </div>
+                        <p style="margin-top: 15px; font-size: 14px;">
+                            <strong>Month 1:</strong> Plant establishment<br>
+                            <strong>Month 2-3:</strong> Leaf and runner development<br>
+                            <strong>Month 4-5:</strong> Flowering begins<br>
+                            <strong>Month 6-8:</strong> First fruits (limited harvest)<br>
+                            <strong>Year 1:</strong> Full production cycle
+                        </p>
+                    </div>
+                    
+                    <div class="tab-content" id="strawberry-care">
+                        <div class="care-tips">
+                            <h4>Care Instructions</h4>
+                            <ul>
+                                <li>Use rich, slightly acidic soil with good drainage</li>
+                                <li>Remove runners to focus energy on fruit production</li>
+                                <li>Place straw around plants to keep fruits clean</li>
+                                <li>Fertilize with balanced fertilizer before flowering</li>
+                                <li>Replace plants every 2-3 years for best production</li>
+                            </ul>
+                        </div>
+                        <div class="care-tips">
+                            <h4>Troubleshooting</h4>
+                            <ul>
+                                <li><strong>Small fruits:</strong> Insufficient pollination or nutrients</li>
+                                <li><strong>Rotting fruits:</strong> Too much moisture, improve air circulation</li>
+                                <li><strong>Leaf spots:</strong> Fungal disease, avoid overhead watering</li>
+                                <li><strong>Pest damage:</strong> Birds or insects, consider netting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dwarf Citrus -->
+            <div class="plant-card">
+                <div class="plant-image">
+                    <img src="images/citrus-plant.svg" alt="Dwarf Citrus">
+                </div>
+                <div class="plant-content">
+                    <h3>Dwarf Citrus</h3>
+                    <p>Dwarf citrus trees can thrive in large containers and produce fragrant flowers and fruits year after year.</p>
+                    
+                    <div class="plant-tabs">
+                        <div class="plant-tab active" data-tab="citrus-growing">Growing Guide</div>
+                        <div class="plant-tab" data-tab="citrus-timeline">Timeline</div>
+                        <div class="plant-tab" data-tab="citrus-care">Care Tips</div>
+                    </div>
+                    
+                    <div class="tab-content active" id="citrus-growing">
+                        <div class="plant-details">
+                            <div class="plant-detail">
+                                <i class="fas fa-sun"></i>
+                                <span>Sunlight: 8-12 hours of bright light, preferably direct sun</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-tint"></i>
+                                <span>Water: Allow top inch of soil to dry between watering</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>Temperature: 18-29°C (65-85°F)</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-box"></i>
+                                <span>Container: 15-20" pot with excellent drainage</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-seedling"></i>
+                                <span>Varieties: Dwarf Lemon, Lime, Kumquat, Calamondin</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="citrus-timeline">
+                        <h4>Growing Timeline (2-3 years for fruit production)</h4>
+                        <div class="timeline">
+                            <div class="timeline-point">
+                                <div class="timeline-label">Month 1-3</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Month 6-12</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Year 1-2</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Year 2-3</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Year 3+</div>
+                            </div>
+                        </div>
+                        <p style="margin-top: 15px; font-size: 14px;">
+                            <strong>Month 1-3:</strong> Plant establishment<br>
+                            <strong>Month 6-12:</strong> Vegetative growth<br>
+                            <strong>Year 1-2:</strong> First flowering may occur<br>
+                            <strong>Year 2-3:</strong> First fruits may develop<br>
+                            <strong>Year 3+:</strong> Regular fruit production
+                        </p>
+                    </div>
+                    
+                    <div class="tab-content" id="citrus-care">
+                        <div class="care-tips">
+                            <h4>Care Instructions</h4>
+                            <ul>
+                                <li>Use citrus-specific potting mix with good drainage</li>
+                                <li>Fertilize with citrus fertilizer every 6-8 weeks during growing season</li>
+                                <li>Mist leaves regularly to increase humidity</li>
+                                <li>Move indoors when temperatures drop below 10°C (50°F)</li>
+                                <li>Hand-pollinate flowers with a small brush for better fruit set</li>
+                            </ul>
+                        </div>
+                        <div class="care-tips">
+                            <h4>Troubleshooting</h4>
+                            <ul>
+                                <li><strong>Leaf drop:</strong> Temperature stress or improper watering</li>
+                                <li><strong>Yellow leaves:</strong> Nutrient deficiency, especially iron</li>
+                                <li><strong>No flowering:</strong> Insufficient light or nutrients</li>
+                                <li><strong>Fruit drop:</strong> Inconsistent watering or temperature fluctuations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Blueberries -->
+            <div class="plant-card">
+                <div class="plant-image">
+                    <img src="https://images.unsplash.com/photo-1498557850523-fd3d118b962e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Blueberries">
+                </div>
+                <div class="plant-content">
+                    <h3>Blueberries</h3>
+                    <p>Dwarf blueberry varieties can be grown in containers and provide nutritious berries with beautiful foliage.</p>
+                    
+                    <div class="plant-tabs">
+                        <div class="plant-tab active" data-tab="blueberry-growing">Growing Guide</div>
+                        <div class="plant-tab" data-tab="blueberry-timeline">Timeline</div>
+                        <div class="plant-tab" data-tab="blueberry-care">Care Tips</div>
+                    </div>
+                    
+                    <div class="tab-content active" id="blueberry-growing">
+                        <div class="plant-details">
+                            <div class="plant-detail">
+                                <i class="fas fa-sun"></i>
+                                <span>Sunlight: 6-8 hours of direct sunlight</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-tint"></i>
+                                <span>Water: Keep soil consistently moist but not soggy</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>Temperature: 15-26°C (60-80°F)</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-box"></i>
+                                <span>Container: 18" pot with excellent drainage</span>
+                            </div>
+                            <div class="plant-detail">
+                                <i class="fas fa-seedling"></i>
+                                <span>Varieties: Dwarf Tophat, Northsky, Sunshine Blue</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="blueberry-timeline">
+                        <h4>Growing Timeline (2-3 years for full production)</h4>
+                        <div class="timeline">
+                            <div class="timeline-point">
+                                <div class="timeline-label">Month 1-3</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Month 6-12</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Year 1</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Year 2</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="timeline-label">Year 3+</div>
+                            </div>
+                        </div>
+                        <p style="margin-top: 15px; font-size: 14px;">
+                            <strong>Month 1-3:</strong> Plant establishment<br>
+                            <strong>Month 6-12:</strong> Vegetative growth<br>
+                            <strong>Year 1:</strong> Limited flowering and fruiting<br>
+                            <strong>Year 2:</strong> Increased fruit production<br>
+                            <strong>Year 3+:</strong> Full fruit production
+                        </p>
+                    </div>
+                    
+                    <div class="tab-content" id="blueberry-care">
+                        <div class="care-tips">
+                            <h4>Care Instructions</h4>
+                            <ul>
+                                <li>Use acidic soil (pH 4.5-5.5) with peat moss and pine bark</li>
+                                <li>Water with rainwater or acidified water if possible</li>
+                                <li>Fertilize with acid-loving plant fertilizer</li>
+                                <li>Prune in late winter to remove old wood</li>
+                                <li>Protect from birds with netting when fruits ripen</li>
+                            </ul>
+                        </div>
+                        <div class="care-tips">
+                            <h4>Troubleshooting</h4>
+                            <ul>
+                                <li><strong>Yellow leaves:</strong> pH too high, acidify soil</li>
+                                <li><strong>No fruit:</strong> Insufficient pollination, plant two varieties</li>
+                                <li><strong>Leaf spots:</strong> Fungal disease, improve air circulation</li>
+                                <li><strong>Small fruits:</strong> Insufficient water or nutrients</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <i class="fas fa-seedling"></i>
+                    <h2>Pocket Garden</h2>
+                </div>
+                <p>Empowering urban dwellers to grow their own food in small spaces, one pot at a time.</p>
+                <div class="footer-social">
+                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="plants-guide.html">Plants Guide</a></li>
+                    <li><a href="home.html#kits">Starter Kits</a></li>
+                    <li><a href="home.html#gallery">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Community Forum</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-links" id="contact">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> info@pocketgarden.in</li>
+                    <li><i class="fas fa-phone"></i> 789895XXXX</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Bangalore, India</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Pocket Garden Project. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.plant-tab');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Get the parent card
+                    const card = this.closest('.plant-content');
+                    
+                    // Remove active class from all tabs in this card
+                    card.querySelectorAll('.plant-tab').forEach(t => {
+                        t.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Get the tab content id
+                    const tabContentId = this.getAttribute('data-tab');
+                    
+                    // Hide all tab contents in this card
+                    card.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Show the selected tab content
+                    card.querySelector(`#${tabContentId}`).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pocket Garden Project - Urban Gardening</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-seedling"></i>
+                <h1>Pocket Garden</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html" class="active">Home</a></li>
+                <li><a href="#guides">Growing Guides</a></li>
+                <li><a href="plants-guide.html">Plants Guide</a></li>
+                <li><a href="#kits">Starter Kits</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="index.html" class="btn btn-outline">Sign Out</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Grow Your Own Mini Urban Garden</h1>
+            <p>Transform your small spaces into thriving green havens. Start growing vegetables and herbs in pots, bottles, and containers today!</p>
+            <div class="hero-buttons">
+                <a href="#guides" class="btn">Start Growing</a>
+                <a href="#kits" class="btn btn-outline">Get Starter Kits</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="section-title">
+            <h2>Why Pocket Gardening?</h2>
+            <p>Discover the benefits of growing your own food in small spaces</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3>Fresh & Organic</h3>
+                <p>Grow your own chemical-free vegetables and herbs right at home, ensuring the freshest ingredients for your meals.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-rupee-sign"></i>
+                </div>
+                <h3>Save Money</h3>
+                <p>Reduce your grocery bills by growing commonly used herbs and vegetables that are expensive to buy.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3>Small Space Friendly</h3>
+                <p>Perfect for apartments, balconies, and small homes - no garden or yard required!</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Mental Wellbeing</h3>
+                <p>Gardening reduces stress and anxiety while providing a sense of accomplishment and connection to nature.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-recycle"></i>
+                </div>
+                <h3>Eco-Friendly</h3>
+                <p>Reuse plastic bottles and containers as planters, reducing waste while creating a beautiful garden.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Community</h3>
+                <p>Join our growing community of urban gardeners to share tips, experiences, and harvests.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Growing Guides Section -->
+    <section class="guides" id="guides">
+        <div class="section-title">
+            <h2>Growing Guides</h2>
+            <p>Learn how to grow these popular plants in small spaces</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-apple-alt"></i>
+                </div>
+                <h3>Tomatoes</h3>
+                <p>Tomatoes are perfect for container gardening and can thrive on balconies with 6-8 hours of sunlight. Use a 5-gallon pot with drainage holes, quality potting mix, and water consistently.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3>Mint</h3>
+                <p>Mint grows vigorously in small spaces and containers. It prefers partial shade and regular watering. Keep mint in its own container as it can spread aggressively.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <h3>Curry Leaves</h3>
+                <p>Curry leaf plants thrive in warm conditions with bright, indirect light. Use well-draining soil and water when the top inch feels dry. Harvest leaves as needed for cooking.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plant Growth Graph -->
+    <section class="growth-graph" id="graph">
+        <div class="section-title">
+            <h2>Plant Growth Progress</h2>
+            <p>Track the typical growth patterns of popular pocket garden plants</p>
+        </div>
+        <div class="graph-container">
+            <canvas id="growthChart"></canvas>
+        </div>
+    </section>
+
+    <!-- Starter Kits Section -->
+    <section class="starter-kits" id="kits">
+        <div class="section-title">
+            <h2>Starter Kits</h2>
+            <p>Everything you need to begin your urban gardening journey</p>
+        </div>
+        <div class="kits-grid">
+            <div class="kit-card">
+                <div class="kit-image">
+                    <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Basic Starter Kit">
+                </div>
+                <div class="kit-content">
+                    <h3>Basic Starter Kit</h3>
+                    <p>Perfect for beginners. Includes 3 types of seeds, potting soil, and 3 recycled containers.</p>
+                    <div class="kit-price">₹499</div>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+            </div>
+            <div class="kit-card">
+                <div class="kit-image">
+                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Herb Garden Kit">
+                </div>
+                <div class="kit-content">
+                    <h3>Herb Garden Kit</h3>
+                    <p>Grow your own culinary herbs. Includes mint, basil, coriander seeds, premium soil, and decorative pots.</p>
+                    <div class="kit-price">₹799</div>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+            </div>
+            <div class="kit-card">
+                <div class="kit-image">
+                    <img src="https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Premium Garden Kit">
+                </div>
+                <div class="kit-content">
+                    <h3>Premium Garden Kit</h3>
+                    <p>Complete setup with 5 vegetable varieties, organic soil, fertilizer, tools, and vertical garden system.</p>
+                    <div class="kit-price">₹1,499</div>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before-After Section -->
+    <section class="before-after" id="gallery">
+        <div class="section-title">
+            <h2>Success Stories</h2>
+            <p>See the amazing transformations from our community</p>
+        </div>
+        <div class="gallery">
+            <div class="gallery-item">
+                <div class="gallery-images">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1564944184018-3e6aa47cc626?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Before">
+                    </div>
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1581572938037-3f3f6e9a1a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="After">
+                    </div>
+                </div>
+                <div class="gallery-content">
+                    <h3>Balcony Transformation</h3>
+                    <p>Priya from Mumbai transformed her empty balcony into a thriving vegetable garden in just 2 months.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-images">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1534710961216-75c88202f43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Before">
+                    </div>
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1595815771614-ade501d22bf4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="After">
+                    </div>
+                </div>
+                <div class="gallery-content">
+                    <h3>Kitchen Window Garden</h3>
+                    <p>Raj from Delhi created a productive herb garden on his apartment window sill using recycled containers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <i class="fas fa-seedling"></i>
+                    <h2>Pocket Garden</h2>
+                </div>
+                <p>Empowering urban dwellers to grow their own food in small spaces, one pot at a time.</p>
+                <div class="footer-social">
+                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="#guides">Growing Guides</a></li>
+                    <li><a href="#kits">Starter Kits</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Community Forum</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-links" id="contact">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> info@pocketgarden.in</li>
+                    <li><i class="fas fa-phone"></i> 789895XXXX</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Bangalore, India</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Pocket Garden Project. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

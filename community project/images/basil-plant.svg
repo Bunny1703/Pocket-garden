@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="250" viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg">
+  <!-- Pot -->
+  <path d="M70 200 L130 200 L140 250 L60 250 Z" fill="#a05a2c"/>
+  <ellipse cx="100" cy="200" rx="30" ry="5" fill="#8b4513"/>
+  
+  <!-- Stem -->
+  <path d="M100 200 L100 120 L95 100 L105 80 L100 60" stroke="#228B22" stroke-width="3" fill="none"/>
+  
+  <!-- Leaves -->
+  <!-- Main leaves -->
+  <path d="M100 120 C80 110, 60 115, 55 130 C60 140, 80 135, 100 120" fill="#006400"/>
+  <path d="M100 120 C120 110, 140 115, 145 130 C140 140, 120 135, 100 120" fill="#006400"/>
+  
+  <path d="M95 100 C75 90, 55 95, 50 110 C55 120, 75 115, 95 100" fill="#006400"/>
+  <path d="M105 80 C125 70, 145 75, 150 90 C145 100, 125 95, 105 80" fill="#006400"/>
+  
+  <path d="M100 60 C80 50, 60 55, 55 70 C60 80, 80 75, 100 60" fill="#006400"/>
+  <path d="M100 60 C120 50, 140 55, 145 70 C140 80, 120 75, 100 60" fill="#006400"/>
+  
+  <!-- Top leaves -->
+  <ellipse cx="100" cy="45" rx="15" ry="10" fill="#006400" transform="rotate(-10, 100, 45)"/>
+  <ellipse cx="100" cy="45" rx="15" ry="10" fill="#006400" transform="rotate(10, 100, 45)"/>
+  
+  <!-- Small details on leaves -->
+  <path d="M80 125 C85 123, 90 123, 95 125" stroke="#004d00" stroke-width="1" fill="none"/>
+  <path d="M120 125 C115 123, 110 123, 105 125" stroke="#004d00" stroke-width="1" fill="none"/>
+  <path d="M75 105 C80 103, 85 103, 90 105" stroke="#004d00" stroke-width="1" fill="none"/>
+  <path d="M125 85 C120 83, 115 83, 110 85" stroke="#004d00" stroke-width="1" fill="none"/>
+  <path d="M80 65 C85 63, 90 63, 95 65" stroke="#004d00" stroke-width="1" fill="none"/>
+  <path d="M120 65 C115 63, 110 63, 105 65" stroke="#004d00" stroke-width="1" fill="none"/>
+</svg>

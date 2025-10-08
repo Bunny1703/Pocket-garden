@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#E8F5E9"/>
+  
+  <!-- Pot -->
+  <path d="M300 400 L500 400 L550 550 L250 550 Z" fill="#8D6E63"/>
+  <ellipse cx="400" cy="400" rx="100" ry="20" fill="#6D4C41"/>
+  
+  <!-- Soil -->
+  <ellipse cx="400" cy="400" rx="90" ry="15" fill="#5D4037"/>
+  
+  <!-- Plants -->
+  <!-- Tomato Plant -->
+  <path d="M370 400 C370 300, 340 280, 320 260" stroke="#4CAF50" stroke-width="5" fill="none"/>
+  <path d="M370 400 C370 320, 380 280, 400 250" stroke="#4CAF50" stroke-width="5" fill="none"/>
+  <path d="M370 400 C370 350, 350 300, 330 290" stroke="#4CAF50" stroke-width="5" fill="none"/>
+  <circle cx="320" cy="260" r="15" fill="#E53935"/>
+  <circle cx="400" cy="250" r="15" fill="#E53935"/>
+  <circle cx="330" cy="290" r="15" fill="#E53935"/>
+  
+  <!-- Mint Plant -->
+  <path d="M420 400 C420 300, 450 280, 470 260" stroke="#4CAF50" stroke-width="5" fill="none"/>
+  <path d="M420 400 C420 320, 410 280, 390 250" stroke="#4CAF50" stroke-width="5" fill="none"/>
+  <path d="M420 400 C420 350, 440 300, 460 290" stroke="#4CAF50" stroke-width="5" fill="none"/>
+  <ellipse cx="470" cy="260" rx="12" ry="8" fill="#81C784"/>
+  <ellipse cx="390" cy="250" rx="12" ry="8" fill="#81C784"/>
+  <ellipse cx="460" cy="290" rx="12" ry="8" fill="#81C784"/>
+  
+  <!-- Curry Leaves Plant -->
+  <path d="M400 400 C400 300, 380 250, 350 220" stroke="#4CAF50" stroke-width="5" fill="none"/>
+  <path d="M400 400 C400 300, 420 250, 450 220" stroke="#4CAF50" stroke-width="5" fill="none"/>
+  <ellipse cx="350" cy="220" rx="30" ry="15" fill="#8BC34A"/>
+  <ellipse cx="450" cy="220" rx="30" ry="15" fill="#8BC34A"/>
+  
+  <!-- Window Frame -->
+  <rect x="150" y="100" width="500" height="400" rx="10" ry="10" fill="none" stroke="#9E9E9E" stroke-width="10"/>
+  <line x1="400" y1="100" x2="400" y2="500" stroke="#9E9E9E" stroke-width="10"/>
+  <line x1="150" y1="300" x2="650" y2="300" stroke="#9E9E9E" stroke-width="10"/>
+  
+  <!-- Sun -->
+  <circle cx="200" cy="150" r="40" fill="#FFC107"/>
+  <line x1="200" y1="90" x2="200" y2="70" stroke="#FFC107" stroke-width="5"/>
+  <line x1="200" y1="230" x2="200" y2="210" stroke="#FFC107" stroke-width="5"/>
+  <line x1="140" y1="150" x2="120" y2="150" stroke="#FFC107" stroke-width="5"/>
+  <line x1="280" y1="150" x2="260" y2="150" stroke="#FFC107" stroke-width="5"/>
+  <line x1="160" y1="110" x2="145" y2="95" stroke="#FFC107" stroke-width="5"/>
+  <line x1="255" y1="205" x2="240" y2="190" stroke="#FFC107" stroke-width="5"/>
+  <line x1="160" y1="190" x2="145" y2="205" stroke="#FFC107" stroke-width="5"/>
+  <line x1="255" y1="95" x2="240" y2="110" stroke="#FFC107" stroke-width="5"/>
+  
+  <!-- Small Pots -->
+  <path d="M550 450 L590 450 L600 500 L540 500 Z" fill="#8D6E63"/>
+  <ellipse cx="570" cy="450" rx="20" ry="5" fill="#6D4C41"/>
+  <path d="M570 450 C570 430, 560 410, 550 400" stroke="#4CAF50" stroke-width="3" fill="none"/>
+  <path d="M570 450 C570 430, 580 410, 590 400" stroke="#4CAF50" stroke-width="3" fill="none"/>
+  <ellipse cx="550" cy="400" rx="8" ry="5" fill="#81C784"/>
+  <ellipse cx="590" cy="400" rx="8" ry="5" fill="#81C784"/>
+  
+  <path d="M200 450 L240 450 L250 500 L190 500 Z" fill="#8D6E63"/>
+  <ellipse cx="220" cy="450" rx="20" ry="5" fill="#6D4C41"/>
+  <path d="M220 450 C220 430, 210 410, 200 400" stroke="#4CAF50" stroke-width="3" fill="none"/>
+  <path d="M220 450 C220 430, 230 410, 240 400" stroke="#4CAF50" stroke-width="3" fill="none"/>
+  <circle cx="200" cy="400" r="7" fill="#E53935"/>
+  <circle cx="240" cy="400" r="7" fill="#E53935"/>
+</svg>
